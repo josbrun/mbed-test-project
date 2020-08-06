@@ -1,0 +1,56 @@
+{
+    "macros": [
+        "ARM_UC_USE_PAL_BLOCKDEVICE=1"
+    ],
+    "target_overrides": {
+        "*": {
+			"platform.memory-tracing-enabled": true,
+            "platform.stdio-baud-rate"                  : 115200,
+            "platform.stdio-convert-newlines"           : true,
+            "platform.stdio-buffered-serial"            : true,
+            "platform.stdio-flush-at-exit"              : true,
+            "rtos.main-thread-stack-size"               : 5120,
+            "events.shared-stacksize"                   : 2048,
+            "events.shared-eventsize"                   : 2048,
+            "mbed-trace.enable"                         : true
+        },
+        "DISCO_L475VG_IOT01A": {
+            "target.network-default-interface-type"     : "CELLULAR",
+            "ppp.ipv4-enabled": false,
+            "ppp.ipv6-enabled": true,
+            "lwip.ipv4-enabled": true,
+            "lwip.ipv6-enabled": true,
+            "lwip.ethernet-enabled": false,
+            "lwip.ppp-enabled": false,
+            "lwip.tcp-enabled": true,
+            "nsapi.default-cellular-apn": "\"arkessalp.com\"",
+            "nsapi.default-cellular-username": "\"arkessa\"",
+            "nsapi.default-cellular-password": "\"arkessa\"",
+			"cellular.debug-at": true,
+
+            "QUECTEL_BG96.provide-default": true,
+            "QUECTEL_BG96.tx": "D1",
+            "QUECTEL_BG96.rx": "D0",
+            "QUECTEL_BG96.pwr": "A5",
+            "QUECTEL_BG96.rst": "A4",
+            "QUECTEL_BG96.polarity": 1,
+
+            "led-pinname"                               : "LED1"
+        }
+    },
+    "config": {
+        "developer-mode": {
+            "help"      : "Enable Developer mode to skip Factory enrollment",
+            "options"   : [null, 1],
+            "value"     : 1
+        },
+        "button-pinname": {
+            "help"      : "PinName for button.",
+            "value"     : "BUTTON1"
+        },
+        "led-pinname"   : {
+            "help"      : "PinName for led, which is attached to led blink resource.",
+            "value"     : "LED_RED"
+        }
+    }
+}
